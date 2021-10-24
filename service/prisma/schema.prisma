@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id Int @default(autoincrement()) @id
+  username String @unique
+  avatar String @default("default-avatar.jpg")
+  banner String @default("default-banner.jpg")
+  email String  @unique
+  password String
+  nome String
+  sobrenome String
+  data_nascimento DateTime
+  sobre String?
+  ocupacao String?
+  amigos Usuario[] @relation("amigos")
+  amigosRelation Usuario[] @relation("amigos")
+  faculdade Faculdade @relation(fields: [faculdadeId], references: [id])
+  faculdadeId Int
+  curso Curso @relation(fields: [cursoId], references: [id])
+  cursoId Int
+  status Status[]
+  comentarios Comentario[]
+  respostas Resposta[]
+}
+
+model Faculdade {
+  id Int @default(autoincrement()) @id
+  nome String
+  cursos Curso[]
+  alunos Usuario[]
+}
+
+model Curso {
+  id Int @default(autoincrement()) @id
+  nome String
+  turno Turno?
+  modalide Modalide
+  alunos Usuario[]
+  faculdades Faculdade[]
+}
+
+model Status {
+  id Int @default(autoincrement()) @id
+  usuario Usuario @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+  commentarios Comentario[]
+  texto String
+}
+
+model Comentario {
+  id Int @default(autoincrement()) @id
+  status Status @relation(fields: [statusId], references: [id])
+  statusId Int
+  usuario Usuario @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+  respostas Resposta[]
+  texto String
+}
+
+model Resposta {
+  id Int @default(autoincrement()) @id
+  comentario Comentario @relation(fields: [comentarioId], references: [id])
+  comentarioId Int
+  usuario Usuario @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+  texto String
+}
+
+enum Turno {
+  MATUTINO
+  VERSPERTINO
+  NOTURNO
+}
+
+enum Modalide {
+  PRESENCIAL
+  EAD
+  HIBRIDO
+}
