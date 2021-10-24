@@ -3,12 +3,16 @@ import {
   Controller,
   Get,
   Post,
+  Request,
+  UseGuards,
 } from '@nestjs/common';
-import { Faculdade as FaculdadeModel, Usuario as UsuarioModel } from '@prisma/client';
+import { Usuario as UsuarioModel } from '@prisma/client';
 import { AppService } from './app.service';
-import { FaculdadeService } from './global/faculdade.service';
-import { HashingService } from './global/hashing.service';
-import { UsuarioService } from './global/usuario.service';
+import { AuthService } from './auth/auth.service';
+import { HashingService } from './auth/hashing.service';
+import { JwtAuthGuard } from './auth/jwt-auth.guard';
+import { LocalAuthGuard } from './auth/local-auth.guard';
+import { UsuarioService } from './domain/usuario.service';
 
 
 @Controller({})
@@ -16,18 +20,25 @@ export class AppController {
 
   constructor(
     private readonly appService: AppService,
-    private readonly faculdadeService: FaculdadeService,
     private readonly usuarioService: UsuarioService,
-    private readonly hashingService: HashingService) {}
+    private readonly hashingService: HashingService,
+    private readonly authService: AuthService) {}
 
   @Get()
   getHello(): string {
     return this.appService.getHello();
   }
 
-  @Get('faculdades')
-  async getFaculdades(): Promise<FaculdadeModel[]> {
-    return this.faculdadeService.faculdades({});
+  @UseGuards(LocalAuthGuard)
+  @Post('auth/login')
+  async login(@Request() req) {
+    return this.authService.login(req.user);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('profile')
+  getProfile(@Request() req) {
+    return req.user;
   }
 
   @Post('usuarios')
@@ -41,7 +52,7 @@ export class AppController {
     
     return this.usuarioService.createUser({
       ...usuarioBody,
-      password: await this.hashingService.bcrypt(usuarioBody.password),
+      password: await this.hashingService.encrypt(usuarioBody.password),
       data_nascimento: dataNascimento,
       faculdade: {
         connect: {

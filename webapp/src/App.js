@@ -22,12 +22,12 @@ function App() {
       <header className="App-header">
         <hgroup>
           <h1>Klass</h1>
-          <h3>Faculdades</h3>
+          <h3>Usuário</h3>
         </hgroup>  
       </header>
       <main>
-        <button onClick={nextUser}>Recarregar</button>
         <User userId={userId}/>
+        <button onClick={nextUser}>Recarregar</button>
       </main>
     </div>
   );

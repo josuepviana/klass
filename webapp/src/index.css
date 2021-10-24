@@ -1,4 +1,34 @@
-body {
+:root {
+  --primary-color: #161625;
+  --secondary-color: #565f78;
+  --card-color: #3b404f;
+  --font-color: #FFFFFF;
+  --hover-color: #6b6b82;
+  --bg-color: #161625;
+  --textarea-color: #757575;
+  --primaryText-color: #FFFFFF;
+  --secondaryText-color: whitesmoke;
+  font-weight: bolder;
+}
+
+[data-theme="light"] {
+  --primary-color: #0288D1;
+  --secondary-color: #607D8B;
+  --card-color: whitesmoke;
+  --font-color: #FFFFFF;
+  --hover-color: #CFD8DC;
+  --bg-color: whitesmoke;
+  --textarea-color: whitesmoke;
+  --primaryText-color: #212121;
+  --secondaryText-color: #757575;
+}
+
+/* CSS GERAL DE TODAS AS PAGINAS */
+body {  
+  background-color: var(--bg-color);
+  color: var(--primaryText-color) !important;
+  color: var(--primaryText-color);
+  overflow-x: hidden;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
