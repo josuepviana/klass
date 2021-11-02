@@ -23,8 +23,6 @@ function User({userId}) {
             <dd>{data.name}</dd>
             <dt>E-mail</dt>
             <dd>{data.email}</dd>
-            <dt>Site</dt>
-            <dd>{data.website}</dd>
         </dl>        
     </div>
 }
