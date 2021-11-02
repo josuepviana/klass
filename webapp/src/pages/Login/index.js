@@ -36,54 +36,55 @@ function Login() {
   }, [data, history]);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="form-inner">
-        {loading && <img src={Loading} alt="loading..." width="60" height="60"/>}
-        {!loading &&
-          <div>
-            <h2> Acesse sua conta </h2>
-            {error != "" ? <div className="error">{error}</div> : ""}
+    <div className="login--layout">
+      <form onSubmit={handleSubmit}>
+        <div className="form-inner">
+          {loading && <img src={Loading} alt="loading..." width="60" height="60" />}
+          {!loading &&
+            <div>
+              <h2> Acesse sua conta </h2>
+              {error != "" ? <div className="error">{error}</div> : ""}
 
-            <div className="inner-form">
-              <div className="form-group">
-                <label> Usuário </label>
-                <input
-                  placeholder="Username"
-                  name="username"
-                  id="username"
-                  onChange={(e) =>
-                    setDetails({ ...details, username: e.target.value })
-                  }
-                  value={details.username}
-                  disabled={loading}
-                />
-              </div>
+              <div className="inner-form">
+                <div className="form-group">
+                  <label> Usuário </label>
+                  <input
+                    placeholder="Username"
+                    name="username"
+                    id="username"
+                    onChange={(e) =>
+                      setDetails({ ...details, username: e.target.value })
+                    }
+                    value={details.username}
+                    disabled={loading}
+                  />
+                </div>
 
-              <div className="form-group">
-                <label> Senha </label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Senha"
-                  id="password"
-                  onChange={(e) =>
-                    setDetails({ ...details, password: e.target.value })
-                  }
-                  value={details.password}
-                  disabled={loading}
-                />
-              </div>
+                <div className="form-group">
+                  <label> Senha </label>
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Senha"
+                    id="password"
+                    onChange={(e) =>
+                      setDetails({ ...details, password: e.target.value })
+                    }
+                    value={details.password}
+                    disabled={loading}
+                  />
+                </div>
 
-              <div className="form-group">
-                <button type="submit" disabled={loading}>Login</button>
+                <div className="form-group">
+                  <button type="submit" disabled={loading}>Login</button>
+                </div>
               </div>
             </div>
-          </div>
-        }
+          }
 
-      </div>
-
-    </form>
+        </div>
+      </form>
+    </div>
   );
 }
 export default Login;

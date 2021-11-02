@@ -1,33 +1,69 @@
 import useAxios from "axios-hooks";
-import React from "react";
-import Loading from '../../assets/loading-circle.gif'
+import React, { useEffect, useState } from "react";
+import Sidenav from "../../components/menu/sidenav";
+import Navbar from "../../components/navbar/navbar";
 
-import {
-  BrowserRouter as Router,
-  useHistory,
-  Link,
-} from "react-router-dom";
+import './style.css'
 
 function Home() {
-  
-  const [{data, loading, error}] = useAxios({
-    url: 'http://localhost:3000/profile',
+
+  const [textToPost, setTextToPost] = useState('');
+
+  const [{ data: posts, loadingPosts, error: errorGettingPosts }, refreshPosts] = useAxios({
+    url: 'http://localhost:3000/posts',
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('api-token')
     }
   });
+    
+  const [{ data: successPosting, loading: loadingAddPost, error: errorPosting }, executeAddPost] = useAxios({
+    url: 'http://localhost:3000/posts',
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('api-token')
+    }
+  }, { manual: true });
+
+
+  useEffect(() => {
+    if (successPosting) {
+      refreshPosts();
+    }
+  }, [successPosting]);
+
+  const handleOnPostarClick = () => {
+
+    executeAddPost({
+      data: {
+        texto: textToPost
+      }
+    })
+  }
 
   return (
-    <main>
-        {data && 
-          <div>
-            <h3>Bom dia, {data.nome}</h3>
-            <h4>Você nasceu em {new Date(data.data_nascimento).toLocaleDateString()}</h4>
-          <img src={'http://localhost:3001/img/' + data.avatar} alt="loading..." width="100" width="100" />
-          </div>}
-        { data && <pre>{JSON.stringify(data, null, 2)}</pre> }
-        {loading && <img src={Loading} alt="loading..." width="60" height="60"/>}
-      </main>
+    <div className="home--layout">
+      <Sidenav />
+      <div>
+        <Navbar />
+        <main>
+          <section className="post--form">
+            <textarea rows="10" cols="60" value={textToPost} onChange={e => setTextToPost(e.target.value)}/>
+            <button onClick={handleOnPostarClick} disabled={!textToPost}>Postar</button>
+          </section>
+          <section>
+            { posts && 
+              posts.map(post => (
+                <fieldset>
+                  <legend>{post.usuario.nome}</legend>
+                  {post.texto}
+                </fieldset>)
+              ) 
+            }
+          </section>
+        </main>
+      </div>
+    </div>
   );
 }
+
 export default Home;

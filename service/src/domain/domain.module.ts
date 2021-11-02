@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { FaculdadeService } from './faculdade.service';
+import { PostagemService } from './postagem.service';
 import { PrismaService } from './prisma.service';
 import { UsuarioService } from './usuario.service';
 
@@ -7,8 +8,9 @@ import { UsuarioService } from './usuario.service';
     providers: [
         PrismaService, 
         UsuarioService, 
-        FaculdadeService
+        FaculdadeService,
+        PostagemService
     ],
-    exports: [UsuarioService]
+    exports: [UsuarioService, PostagemService]
 })
 export class DomainModule {}

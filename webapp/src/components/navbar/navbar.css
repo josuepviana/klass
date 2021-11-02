@@ -1,0 +1,12 @@
+.navbar--layout {
+  background-color: var(--primary-color);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar--layout .search-input {
+  width: 300px;
+  margin-left: -240px;
+}

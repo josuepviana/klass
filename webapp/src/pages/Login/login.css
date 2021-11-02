@@ -1,14 +1,17 @@
+.login--layout {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    margin-top: -180px;
+}
+
 input, button {
     background: whitesmoke;
     border: solid 1px;
     padding: 5px;
 }
 
-form{
-    margin: 100px;
-    display: block;
-    position: relative;
-}
 
 form::after{
     content: '';
@@ -27,7 +30,7 @@ form .error{
 }
 
 form .form-inner{
-    color: var(--primaryText-color:);
+    color: var(--primaryText-color);
     font-weight: 500;
     position: relative;
     display: block;
@@ -50,7 +53,7 @@ form .form-inner .form-group{
 
 .form-inner label{
     display: block;
-    color: var(--primaryText-color:);
+    color: var(--primaryText-color);
     font-size: 12px;
     font-weight: 600;
     margin-bottom: 5px;
