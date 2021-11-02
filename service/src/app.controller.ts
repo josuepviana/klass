@@ -29,16 +29,23 @@ export class AppController {
     return this.appService.getHello();
   }
 
+  sleep(ms: number): Promise<any> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
   async login(@Request() req) {
+    await this.sleep(2_000);
     return this.authService.login(req.user);
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('profile')
   getProfile(@Request() req) {
-    return req.user;
+    return this.usuarioService.usuario({
+      id: req.user.userId
+    });
   }
 
   @Post('usuarios')
