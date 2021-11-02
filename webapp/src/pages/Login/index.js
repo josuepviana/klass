@@ -1,6 +1,7 @@
 import useAxios from 'axios-hooks';
-import Loading from '../../assets/loading-bar.gif'
+import Loading from '../../assets/loading-circle.gif'
 import React, { useEffect, useState } from "react";
+import CSS from '../Login/login.css';
 import { useHistory } from 'react-router-dom';
 
 
@@ -36,10 +37,8 @@ function Login() {
 
   return (
     <form onSubmit={handleSubmit}>
-
-
       <div className="form-inner">
-        {loading && <img src={Loading} alt="loading..." />}
+        {loading && <img src={Loading} alt="loading..." width="60" height="60"/>}
         {!loading &&
           <div>
             <h2> Acesse sua conta </h2>
