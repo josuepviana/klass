@@ -29,14 +29,16 @@ button {
 
 .menu a:hover {
   background-color: rgba(0, 0, 0, 0.1);
-  padding: 0.5em 1em 0.5em 3em;
-  font-size: 0.95em;
+  padding: 0.5em 1em 0.5em 1em;
+  font-size: 1.1em;
   font-weight: regular;
   background-repeat: no-repeat;
   background-position: left 15px center;
   background-size: auto 20px;
   transition: all 0.15s linear;
   cursor: pointer;
+  text-align: center;
+
 }
 
 .menu ul {
@@ -46,17 +48,19 @@ button {
 }
 
 .menu li {
-  padding: 0.5em 1em 0.5em 3em;
+  padding: 0.5em 1em 0.5em 1em;
   font-size: 0.95em;
   font-weight: regular;
   background-repeat: no-repeat;
   background-position: left 15px center;
   background-size: auto 20px;
   transition: all 0.15s linear;
+
 }
 
 .menu li:focus {
   outline: none;
+  text-align: center;
 }
 
 .avatar {

@@ -1,0 +1,11 @@
+
+img{
+    width:50px;
+    margin: 5px;
+  }
+
+.post--header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

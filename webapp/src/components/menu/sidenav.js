@@ -1,5 +1,7 @@
 import useAxios from "axios-hooks";
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faCogs, faBell, faUser } from '@fortawesome/free-solid-svg-icons';
 import "./sidenav.css";
 
 import { BrowserRouter as Router, useHistory, Link } from "react-router-dom";
@@ -32,16 +34,16 @@ function Sidenav() {
           </header>
           <ul>
             <li tabIndex="0">
-              <Link to="/">Home</Link>
+            <FontAwesomeIcon icon={ faHome }/> &nbsp;<Link to="/">Home</Link>
             </li>
             <li tabIndex="1">
-              <Link to="/profile">Perfil</Link>
+            <FontAwesomeIcon icon={ faUser }/> &nbsp;<Link to="/profile">Perfil</Link>
             </li>
             <li tabIndex="2">
-              <Link to="/notifications">Notificações</Link>
+            <FontAwesomeIcon icon={ faBell }/> &nbsp;<Link to="/notifications">Notificações</Link>
             </li>
             <li tabIndex="3">
-              <Link to="/configurations">Configurações</Link>
+            <FontAwesomeIcon icon={ faCogs }/> &nbsp;<Link to="/configurations">Configurações</Link>
             </li>
             <li tabIndex="4" className="logout">
               <button onClick={doLogout}>Logout</button>
