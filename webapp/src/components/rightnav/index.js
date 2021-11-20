@@ -1,22 +1,15 @@
+import { useContext } from 'react';
+import UsuarioContext from '../../auth/usuario-context';
 import './style.css'
 
 function RightNav() {
+  const usuario = useContext(UsuarioContext);
+
   return (
     <section className="rightnav--layout">
       <div className="rightnav--content">
-      <h3>Instituto Federal de Brasília - Campi Asa Norte</h3>
-      <h6>Instituição</h6>
-      <hr className="rightnav--divider"/>
-      <h4>Tecnologia em Sistemas para Internet</h4>
-      <h6>Curso</h6>
-      </div>
-      <hr/>
-      <div className="rightnav--content">
-      <h3>Universidade de Brasilia  - Campi Asa Norte</h3>
-      <h6>Instituição</h6>
-      <hr className="rightnav--divider"/>
-      <h4>Ciência da Computação</h4>
-      <h6>Curso</h6>
+        <h4>{usuario.faculdade.nome}</h4>
+        <h5>{usuario.curso.nome}</h5>
       </div>
     </section>
   )

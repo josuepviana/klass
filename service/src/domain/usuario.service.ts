@@ -16,6 +16,21 @@ export class UsuarioService {
     });
   }
 
+  async usuarioProfile(usuarioWhereUniqueInput: Prisma.UsuarioWhereUniqueInput): Promise<Usuario | null> {
+
+    const usuario = await this.prisma.usuario.findUnique({
+      where: usuarioWhereUniqueInput,
+      include: {
+        faculdade: true,
+        curso: true
+      },
+    });
+
+    delete usuario.password;
+
+    return usuario;
+  }
+
   async usuarios(params: {
     skip?: number;
     take?: number;
