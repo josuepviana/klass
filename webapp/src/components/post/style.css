@@ -9,3 +9,70 @@ img{
     justify-content: center;
     align-items: center;
 }
+
+.post--buttons{
+  text-align: center;
+}
+
+.comentario--divider{
+  width: 70%;
+  margin: 0 auto;
+}
+
+summary {list-style: none}
+summary::-webkit-details-marker {display: none; }
+
+.post--verComentario{
+  margin: 10px;
+}
+
+
+details summary::before { 
+  content:"🡒"; 
+  color: red; 
+  margin: 10px;
+  /* you can style it however you want, use background-image for example */
+}
+
+/* By using [open] we can define different styles when the disclosure widget is open */
+details[open] summary::before { 
+  content:"🡑"; 
+  color: red;
+  margin: 10px;
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: var(--details-height-open, '100%');
+  }
+}
+
+html {
+  --details-transition-time: 400ms;
+}
+
+details {
+  transition: all ease-out var(--details-transition-time, 0);
+  max-height: var(--details-height-closed, auto);
+}
+
+details[open] {
+  max-height: var(--details-height-open, auto);
+
+}
+
+details div {
+  transition: all ease-out var(--details-transition-time, 0);
+  max-height: var(--details-content-height-closed, auto);
+  overflow: hidden;
+  animation-name: slideDown;
+  animation-duration: var(--details-transition-time);
+}
+
+details.is--open div {
+  max-height: var(--details-content-height-open, auto);
+}

@@ -1,7 +1,7 @@
 import useAxios from "axios-hooks";
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faCogs, faBell, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCogs, faBell, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import "./sidenav.css";
 
 import { BrowserRouter as Router, useHistory, Link } from "react-router-dom";
@@ -46,7 +46,7 @@ function Sidenav() {
             <FontAwesomeIcon icon={ faCogs }/> &nbsp;<Link to="/configurations">Configurações</Link>
             </li>
             <li tabIndex="4" className="logout">
-              <button onClick={doLogout}>Logout</button>
+            <FontAwesomeIcon icon={ faSignOutAlt }/> &nbsp;<button onClick={doLogout}>Logout</button>
             </li>
           </ul>
         </nav>

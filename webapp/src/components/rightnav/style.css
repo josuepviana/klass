@@ -1,0 +1,14 @@
+.rightnav--layout{
+    background-color: var(--secondary-color);
+    padding: 1em;    
+    height: 100%;
+}
+
+.rightnav--content{
+    margin: 1em;
+}
+
+.rightnav--divider{
+    width: 50%;
+    margin: 1em auto;
+}

@@ -1,9 +1,12 @@
 .content-layout > section {
-  margin-left: calc(var(--menu-width-desktop) * -1);
+  margin-left: calc(var(--menu-width-desktop) * -3);
 }
 
 .content-layout > aside {
   max-width: calc(var(--menu-width-desktop) * 2);
   background-color: var(--secondary-color);
   padding: 1em;
+  position: fixed;
+  top: 0;
+  right: 0;
 }

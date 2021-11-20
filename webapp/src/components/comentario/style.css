@@ -1,0 +1,14 @@
+
+.comentario{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+  }
+
+  
+  .commenter--info{
+    width: 50%;
+  }
+  .comment--body{
+    width: 200%;
+  }
