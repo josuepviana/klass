@@ -1,9 +1,8 @@
 import useAxios from "axios-hooks";
 import React, { useEffect, useState } from "react";
-import Sidenav from "../../components/menu/sidenav";
-import RightNav from "../../components/rightnav";
 import Post from "../../components/post/post";
 import "./style.css";
+import ContentLayout from "../../layout/ContentLayout";
 
 function Home() {
   const [textToPost, setTextToPost] = useState("");
@@ -47,10 +46,8 @@ function Home() {
   };
 
   return (
-    <div className="home--layout">
-      <Sidenav />
-
-      <main>
+    <ContentLayout>
+      <main className="home--content-main">
         <section className="post--form">
           <textarea
             rows="10"
@@ -73,10 +70,7 @@ function Home() {
             ))}
         </section>
       </main>
-      <aside className="right-nav">
-        <RightNav />
-      </aside>
-    </div>
+    </ContentLayout>
   );
 }
 

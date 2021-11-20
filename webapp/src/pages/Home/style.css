@@ -1,26 +1,13 @@
-.home--layout {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  overflow-y: auto;
-  margin-left: 240px;
-  width: 100vw;
-}
-
-.home--layout main {
+.home--content-main {
   padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.home--layout main > * {
+.home--content-main > * {
   width: 600px;
   margin-top: 0.5em;
-}
-
-.right-nav {
-  transform: translateX(50%);
 }
 
 .post--form {
