@@ -1,7 +1,7 @@
 import useAxios from "axios-hooks";
 import React, { useEffect, useState } from "react";
 import Sidenav from "../../components/menu/sidenav";
-import Navbar from "../../components/navbar/navbar";
+import RightNav from "../../components/rightnav";
 import Post from "../../components/post/post";
 import "./style.css";
 
@@ -49,32 +49,33 @@ function Home() {
   return (
     <div className="home--layout">
       <Sidenav />
-      <div>
-        <Navbar />
-        <main>
-          <section className="post--form">
-            <textarea
-              rows="10"
-              cols="60"
-              value={textToPost}
-              onChange={(e) => setTextToPost(e.target.value)}
-            />
-            <button
-              type="submit"
-              onClick={handleOnPostarClick}
-              disabled={!textToPost}
-            >
-              Postar
-            </button>
-          </section>
-          <section>
-            {posts &&
-              posts.map((post, i) => (
-                <Post post={post} key={i}/>
-              ))}
-          </section>
-        </main>
-      </div>
+
+      <main>
+        <section className="post--form">
+          <textarea
+            rows="10"
+            cols="60"
+            value={textToPost}
+            onChange={(e) => setTextToPost(e.target.value)}
+          />
+          <button
+            type="submit"
+            onClick={handleOnPostarClick}
+            disabled={!textToPost}
+          >
+            Postar
+          </button>
+        </section>
+        <section>
+          {posts &&
+            posts.map((post, i) => (
+              <Post post={post} key={i} />
+            ))}
+        </section>
+      </main>
+      <aside className="right-nav">
+        <RightNav />
+      </aside>
     </div>
   );
 }
