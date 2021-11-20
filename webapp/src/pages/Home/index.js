@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Post from "../../components/post/post";
 import "./style.css";
 import ContentLayout from "../../layout/ContentLayout";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
   const [textToPost, setTextToPost] = useState("");
@@ -55,13 +57,15 @@ function Home() {
             value={textToPost}
             onChange={(e) => setTextToPost(e.target.value)}
           />
+          <div align="center">
           <button
             type="submit"
             onClick={handleOnPostarClick}
             disabled={!textToPost}
-          >
+          ><FontAwesomeIcon icon={ faPaperPlane }/> &nbsp;
             Postar
           </button>
+          </div>
         </section>
         <section>
           {posts &&

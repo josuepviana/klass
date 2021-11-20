@@ -17,9 +17,12 @@ button {
   padding: 5px;
   color: var(--primaryText-color);
   border: none;
-  background-color: var(--primary-color);
   outline: none;
   cursor: pointer;
+}
+
+.menu button{
+  background-color: var(--primary-color);
 }
 
 .menu a:hover {

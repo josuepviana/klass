@@ -1,4 +1,16 @@
 
+.post--layout > p {
+  font-weight: 400;
+  margin: 1em 2em;
+}
+
+.post--layout > hr{
+  width: 90%;
+  margin: 0 auto;
+  height: 1px;
+  opacity: 0.5;
+}
+
 img{
     width:50px;
     margin: 5px;
@@ -6,8 +18,8 @@ img{
 
 .post--header{
     display: flex;
-    justify-content: center;
     align-items: center;
+    margin: 0.8em;
 }
 
 .post--buttons{
@@ -17,6 +29,7 @@ img{
 .comentario--divider{
   width: 70%;
   margin: 0 auto;
+  opacity: 0.5;
 }
 
 summary {list-style: none}

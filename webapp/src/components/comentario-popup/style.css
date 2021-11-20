@@ -1,0 +1,50 @@
+.popup-content{
+  border-radius: 10px;
+}
+
+.fazerComentario--layout {
+    font-size: 12px;
+  }
+  
+  .fazerComentario--layout > .fazerComentario--content {
+    width: 100%;
+    padding: 10px 5px;
+    text-align: center;
+  }
+
+  .fazerComentario--content > textarea{
+    resize: none;
+    border-radius: 15px;
+}
+  .fazerComentario--layout > .fazerComentario--buttons {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+  }
+  .fazerComentario--layout > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 25px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: var(--primary-color);
+    border-radius: 10px;
+    border: 1px solid #212121;
+    color: whitesmoke;
+  }
+
+  .fazerComentario--buttons > button{
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 3px;
+    background: var(--secondary-color: );
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+    color: whitesmoke;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 10px;
+  } 

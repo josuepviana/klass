@@ -16,13 +16,6 @@
   border-radius: 5px;
 }
 
-
-hr.rounded {
-  border: 0.5px solid var(--primaryText-color);
-  border-radius: 5px;
-  margin: 10px
-}
-
 .post--form textarea {
   padding: 0.5em;
   margin-left: auto;
@@ -31,25 +24,27 @@ hr.rounded {
   margin-bottom: 10px;
   display: block;
   border-radius: 10px;
+  resize: none;
 }
 
+/* fazer postagem button*/
 .post--form button[type=submit]  {
     display: inline-block;
     padding: 10px 15px;
     border-radius: 8px;
-    background-color: #161625;
+    background-color: var(--primary-color);
     color: whitesmoke;
     font-weight: 700;
     cursor: pointer;
     margin: 10px;
 } 
 
+/* Post section buttons*/
 section button{
   display: inline-block;
   padding: 10px 15px;
   border-radius: 3px;
-  background-color: #161625;
-  color: whitesmoke;
+  color: #212121;
   font-weight: 500;
   cursor: pointer;
   margin: 10px;
