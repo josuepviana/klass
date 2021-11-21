@@ -35,6 +35,7 @@ model Usuario {
 
 model Faculdade {
   id Int @default(autoincrement()) @id
+  campus String?
   nome String
   cursos Curso[]
   alunos Usuario[]
