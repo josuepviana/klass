@@ -35,10 +35,11 @@ export class PostsController {
   getStatus(@Request() req) {
     return this.postagemService.status({
         where: {
-          usuarioId: req.user.userId
+          usuarioId: req.user.userId,
         },
         include: {
-          usuario: true
+          usuario: true,
+          commentarios: true
         }
     });
   }

@@ -39,6 +39,8 @@ model Faculdade {
   nome String
   cursos Curso[]
   alunos Usuario[]
+  feedRSSURL String?
+
 }
 
 model Curso {
