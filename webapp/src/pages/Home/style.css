@@ -6,7 +6,7 @@
 }
 
 .home--content-main > * {
-  width: 600px;
+  width: min(800px, 100%);
   margin-top: 0.5em;
 }
 

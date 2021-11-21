@@ -1,29 +1,3 @@
-
-:root {
-
-    --primary-color: #4a76a8;
-    --primary-dark: #161625;
-    --secondary-color: #2a5885;
-    --card-color: whitesmoke;
-    --font-color: #FFFFFF;
-    --hover-color: #CFD8DC;
-    --bg-color: #c7d5e0;
-    --textarea-color: #f7f8fa;
-    --primaryText-color: #212121;
-    --secondaryText-color: #757575;
-    --menu-width-desktop: 240px;
-    --menu-width-tablet: 90px;
-    --menu-width-smartphone: 230px;
-    font-weight: bolder;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .App {
     width: 100vw;
     min-height: 100vh

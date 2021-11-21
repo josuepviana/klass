@@ -1,12 +1,8 @@
 .menu {
   background-color: var(--primary-color);
-  height: 100vh;
   width: var(--menu-width-desktop);
-  top: 0;
-  left: 0;
   z-index: 5;
   outline: none;
-  position: fixed;
 }
 
 a:link,

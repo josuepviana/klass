@@ -1,5 +1,21 @@
+.content-layout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-layout > * {
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
 .content-layout > section {
-  margin-left: calc(var(--menu-width-desktop) * -2);
+  flex: 1;
+  scrollbar-width: none;
+}
+
+.content-layout > section:-webkit-scrollbar {
+    display: none;
 }
 
 .content-layout > aside {
@@ -7,8 +23,5 @@
   width: calc(var(--menu-width-desktop) * 1.75);
   background-color: var(--primary-color);
   padding: 1em;
-  position: fixed;
-  top: 0;
-  right: 0;
 }
 
