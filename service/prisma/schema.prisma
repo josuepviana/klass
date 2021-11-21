@@ -51,6 +51,7 @@ model Curso {
 
 model Status {
   id Int @default(autoincrement()) @id
+  criadoEm DateTime @default(now())
   usuario Usuario @relation(fields: [usuarioId], references: [id])
   usuarioId Int
   commentarios Comentario[]
@@ -59,6 +60,7 @@ model Status {
 
 model Comentario {
   id Int @default(autoincrement()) @id
+  criadoEm DateTime @default(now())
   status Status @relation(fields: [statusId], references: [id])
   statusId Int
   usuario Usuario @relation(fields: [usuarioId], references: [id])
@@ -69,6 +71,7 @@ model Comentario {
 
 model Resposta {
   id Int @default(autoincrement()) @id
+  criadoEm DateTime @default(now())
   comentario Comentario @relation(fields: [comentarioId], references: [id])
   comentarioId Int
   usuario Usuario @relation(fields: [usuarioId], references: [id])
