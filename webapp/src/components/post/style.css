@@ -1,4 +1,6 @@
-
+.post--layout {
+  background-color: whitesmoke;
+}
 .post--layout > p {
   font-weight: 400;
   margin: 1em 2em;
@@ -42,7 +44,7 @@ summary::-webkit-details-marker {display: none; }
 
 details summary::before { 
   content:"🡒"; 
-  color: red; 
+  color: var(--primary-dark); 
   margin: 10px;
   /* you can style it however you want, use background-image for example */
 }
@@ -50,7 +52,7 @@ details summary::before {
 /* By using [open] we can define different styles when the disclosure widget is open */
 details[open] summary::before { 
   content:"🡑"; 
-  color: red;
+  color: var(--primary-dark);
   margin: 10px;
 }
 @keyframes slideDown {

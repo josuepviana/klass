@@ -1,7 +1,9 @@
+
 .rightnav--layout{
-    background-color: var(--secondary-color);
-    padding: 1em;    
+    background-color: var(--primary-color);
+    padding: 0.5em;    
     height: 100%;
+    word-break: break-all;
 }
 
 .rightnav--content{
@@ -11,4 +13,17 @@
 .rightnav--divider{
     width: 50%;
     margin: 1em auto;
+}
+.rightnav--content hr{
+    margin: 10px;
+}
+.artigo{
+    margin:5px;
+}
+.artigo--titulo{
+    margin: 10px;
+}
+
+.artigo--sumario{
+    font-weight: 400;
 }
