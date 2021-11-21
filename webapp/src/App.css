@@ -1,14 +1,14 @@
 
 :root {
 
-    --primary-color: #0288D1;
+    --primary-color: #4a76a8;
     --primary-dark: #161625;
-    --secondary-color: #607D8B;
+    --secondary-color: #2a5885;
     --card-color: whitesmoke;
     --font-color: #FFFFFF;
     --hover-color: #CFD8DC;
-    --bg-color: whitesmoke;
-    --textarea-color: whitesmoke;
+    --bg-color: #c7d5e0;
+    --textarea-color: #f7f8fa;
     --primaryText-color: #212121;
     --secondaryText-color: #757575;
     --menu-width-desktop: 240px;
@@ -16,19 +16,6 @@
     --menu-width-smartphone: 230px;
     font-weight: bolder;
 }
-[data-theme="dark"] {
-    --primary-color: #161625;
-    --secondary-color: #565f78;
-    --card-color: #3b404f;
-    --font-color: #FFFFFF;
-    --hover-color: #6b6b82;
-    --bg-color: #161625;
-    --textarea-color: #757575;
-    --primaryText-color: #FFFFFF;
-    --secondaryText-color: whitesmoke;
-}
-
-
 
 * {
     margin: 0;
@@ -47,4 +34,8 @@ body {
     color: var(--primaryText-color) !important;
     color: var(--primaryText-color);
     overflow-x: hidden;
+}
+
+textarea {
+    background-color: var(--textarea-color);
 }
