@@ -21,7 +21,7 @@ function FazerComentario({ onPostarComentarioClick }) {
   return (
     <Popup
       trigger={
-        <button>
+        <button className="open-sans">
           <FontAwesomeIcon icon={faComment} /> &nbsp; Comentar
         </button>
       }

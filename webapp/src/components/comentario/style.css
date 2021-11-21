@@ -1,14 +1,16 @@
 
 .comentario{
-    display: flex;
+    display: inline-block;
     margin: 10px;
     align-items: center;
+    width: 100%;
+    align-items: center;
   }
-
   
   .commenter--info{
-    width: 50%;
+    font-size: .7em;
+    margin-bottom: 5px;
   }
   .comment--body{
-    width: 200%;
+    font-size: .85em;
   }

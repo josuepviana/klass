@@ -53,7 +53,7 @@ function Post({ post }) {
           src={"http://localhost:3001/img/" + post.usuario.avatar}
           alt="loading..."
         />
-        <div>
+        <div class="slackey">
           <div class="user-nickname">
             {post.usuario.nome} {post.usuario.sobrenome}
           </div>
@@ -61,16 +61,16 @@ function Post({ post }) {
         </div>
       </section>
       <hr />
-      <p>{post.texto}</p>
+      <p class="metrophobic">{post.texto}</p>
       <hr />
       <div className="post--buttons">
-        <button type="submit">
+        <button type="submit" className="open-sans">
           <FontAwesomeIcon icon={faThumbsUp} /> &nbsp; Curtir
         </button>
         <FazerComentario onPostarComentarioClick={handlePostarComentarioClick} />
       </div>
       { data &&
-        <details className="post--verComentario">
+        <details className="post--verComentario open-sans">
         <summary><small>{data.length} comentário(s)</small></summary>
           <div>
             {data.map((comentario, i) => [

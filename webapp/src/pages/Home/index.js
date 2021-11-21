@@ -62,6 +62,7 @@ function Home() {
             type="submit"
             onClick={handleOnPostarClick}
             disabled={!textToPost}
+            className="open-sans"
           ><FontAwesomeIcon icon={ faPaperPlane }/> &nbsp;
             Postar
           </button>
