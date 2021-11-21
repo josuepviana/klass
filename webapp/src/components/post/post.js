@@ -1,12 +1,50 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import useAxios from 'axios-hooks';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 import Comentario from "../comentario/comentario";
 import FazerComentario from "../comentario-popup";
+import UsuarioContext from "../../auth/usuario-context";
 
 function Post({ post }) {
-  const [comentarios, setComentarios] = useState(Array(4).fill(1));
+
+  const usuario = useContext(UsuarioContext);
+
+  const [{ data, loading, error }, refreshComentarios] = useAxios({
+    url: `http://localhost:3000/posts/${post.id}/comentarios`,
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("api-token"),
+    },
+  },
+    { manual: true });
+
+  const [
+    { data: successPosting, loading: loadingAddComment, error: errorPosting },
+    executeAddComment,
+  ] = useAxios(
+    {
+      url: `http://localhost:3000/posts/${post.id}/comentarios`,
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("api-token"),
+      },
+    },
+    { manual: true }
+  );
+
+  const handlePostarComentarioClick = (text) => {
+    executeAddComment({
+      data: {
+        texto: text,
+        username: usuario.username
+      }
+    });
+  }
+
+  useEffect(() => {
+    refreshComentarios();
+  }, [successPosting]);
 
   return (
     <fieldset className="post--layout">
@@ -29,17 +67,19 @@ function Post({ post }) {
         <button type="submit">
           <FontAwesomeIcon icon={faThumbsUp} /> &nbsp; Curtir
         </button>
-        <FazerComentario />
+        <FazerComentario onPostarComentarioClick={handlePostarComentarioClick} />
       </div>
-      <details className="post--verComentario">
-        <summary>Ver Comentários</summary>
-        <div>
-          {comentarios.map((comentario, i) => [
-            <Comentario key={i} />,
-            <hr className="comentario--divider" />,
-          ])}
-        </div>
-      </details>
+      { data &&
+        <details className="post--verComentario">
+        <summary><small>{data.length} comentário(s)</small></summary>
+          <div>
+            {data.map((comentario, i) => [
+              <Comentario key={i} comentario={comentario} />,
+              <hr className="comentario--divider" />,
+            ])}
+          </div>
+        </details>
+      }
     </fieldset>
   );
 }

@@ -68,7 +68,7 @@ export class FaculdadeService {
     const faculdade = await this.faculdade(where);
 
     if (faculdade.feedRSSURL) {
-      return this.parser.parseURL('https://www.ifb.edu.br/brasilia?format=feed&type=rss');
+      return this.parser.parseURL(faculdade.feedRSSURL);
     }
 
     return {

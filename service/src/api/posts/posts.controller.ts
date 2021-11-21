@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Param,
   Post,
   Request,
   UseGuards,
@@ -41,6 +42,40 @@ export class PostsController {
           usuario: true,
           commentarios: true
         }
+    });
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('/:id/comentarios')
+  createComentarios(
+    @Param('id') postId,
+    @Body() postBody: { texto: string, username: string }) {
+
+    return this.postagemService.createComentario({
+      texto: postBody.texto,
+      usuario: {
+        connect: {
+          username: postBody.username
+        }
+      },
+      status: {
+        connect: {
+          id: +postId,
+        }
+      }
+    });
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('/:id/comentarios')
+  getComentarios(@Param('id') postId) {
+    return this.postagemService.comentarios({
+      where: {
+        statusId: +postId
+      },
+      include: {
+        usuario: true
+      }
     });
   }
 }

@@ -21,12 +21,16 @@ function ContentLayout({ children }) {
   }
 
   if (error) {
+    if (error.status === 401) {
+      window.location.href = ''
+    }
+
     return (
       <div>
-        <pre>
-          {JSON.stringify(error, null, 2)}
-        </pre>
-        <button onClick={tryAgain()}/>
+        <code>
+          {error.message}
+        </code>
+        <button onClick={tryAgain}/>
       </div>
     )
   }

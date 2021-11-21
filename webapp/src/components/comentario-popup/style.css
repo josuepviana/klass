@@ -12,9 +12,10 @@
     text-align: center;
   }
 
-  .fazerComentario--content > textarea{
+  .fazerComentario--content > textarea {
     resize: none;
     border-radius: 15px;
+    padding: 1em;
 }
   .fazerComentario--layout > .fazerComentario--buttons {
     width: 100%;
