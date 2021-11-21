@@ -8,7 +8,7 @@ import './ContentLayout.css'
 
 function ContentLayout({ children }) {
 
-  const [{ data, loading, error }] = useAxios({
+  const [{ data, loading, error }, tryAgain] = useAxios({
     url: "http://localhost:3000/profile",
     headers: {
       Authorization: "Bearer " + localStorage.getItem("api-token"),
@@ -18,6 +18,17 @@ function ContentLayout({ children }) {
 
   if (loading) {
     return <div />
+  }
+
+  if (error) {
+    return (
+      <div>
+        <pre>
+          {JSON.stringify(error, null, 2)}
+        </pre>
+        <button onClick={tryAgain()}/>
+      </div>
+    )
   }
 
   return (

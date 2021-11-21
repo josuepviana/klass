@@ -4,10 +4,13 @@ import {
   Faculdade,
   Prisma
 } from '@prisma/client';
-
+import * as Parser from 'rss-parser';
 
 @Injectable()
 export class FaculdadeService {
+
+  private readonly parser: Parser = new Parser({});
+
   constructor(private prisma: PrismaService) {}
 
   async faculdade(faculdadeWhereUniqueInput: Prisma.FaculdadeWhereUniqueInput): Promise<Faculdade | null> {
@@ -58,5 +61,14 @@ export class FaculdadeService {
     return this.prisma.faculdade.delete({
       where,
     });
+  }
+
+  async feed(where: Prisma.FaculdadeWhereUniqueInput): Promise<any> {
+
+    const faculdade = await this.faculdade(where);
+
+    console.log({faculdade});
+
+    return this.parser.parseURL('https://www.ifb.edu.br/brasilia?format=feed&type=rss');
   }
 }

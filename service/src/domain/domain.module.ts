@@ -11,6 +11,6 @@ import { UsuarioService } from './usuario.service';
         FaculdadeService,
         PostagemService
     ],
-    exports: [UsuarioService, PostagemService]
+    exports: [UsuarioService, PostagemService, FaculdadeService]
 })
 export class DomainModule {}
