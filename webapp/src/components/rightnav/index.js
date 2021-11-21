@@ -21,10 +21,20 @@ function RightNav() {
           <h5>{usuario.curso.nome}</h5>
         </hgroup>
 
-        <div>
-          { data &&
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-          }
+        <div className="rightnav--feed">
+          {data &&
+            data.items.map((item, i) => (
+              <div>
+                <hr />
+                <div className="artigo">
+                  <h4 className="artigo--titulo">{item.title}</h4>
+                  <p className="artigo--sumario">
+                    {item.contentSnippet}
+                    <a className="artigo--link" href={item.link} target="_blank"> Leia mais...</a>
+                  </p>
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </section>

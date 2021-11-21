@@ -17,6 +17,18 @@
 .rightnav--content hr{
     margin: 10px;
 }
+
+.rightnav--feed {
+    overflow-y: auto;
+    scrollbar-width: none;
+    max-height: calc(100vh - 100px);
+    padding-bottom: 1em;
+}
+
+.rightnav--feed::-webkit-scrollbar {
+    display: none;
+}
+
 .artigo{
     margin:5px;
 }
@@ -26,4 +38,9 @@
 
 .artigo--sumario{
     font-weight: 400;
+    font-size: .75em;
+}
+
+.artigo--link {
+    color: whitesmoke !important;
 }
