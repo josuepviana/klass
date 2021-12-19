@@ -22,21 +22,21 @@ function Profile() {
     return (
         <ContentLayout>
             <div className="profile--wrap">
-<div class="content-profile-page">
-   <div class="profile-user-page card">
-      <div class="img-user-profile">
-        <img class="profile-bgHome" src="https://37.media.tumblr.com/88cbce9265c55a70a753beb0d6ecc2cd/tumblr_n8gxzn78qH1st5lhmo1_1280.jpg" />
-        <img class="avatar" src="http://gravatar.com/avatar/288ce55a011c709f4e17aef7e3c86c64?s=200" alt="jofpin"/>
+<div className="content-profile-page">
+   <div className="profile-user-page card">
+      <div className="img-user-profile">
+        <img className="profile-bgHome" src="https://37.media.tumblr.com/88cbce9265c55a70a753beb0d6ecc2cd/tumblr_n8gxzn78qH1st5lhmo1_1280.jpg" />
+        <img className="avatar" src="http://gravatar.com/avatar/288ce55a011c709f4e17aef7e3c86c64?s=200" alt="jofpin"/>
            </div>
-          <div class="user-profile-data">
+          <div className="user-profile-data">
             <h1>Joseph Hemorroidas</h1>
             <p>Sistemas para Internet</p>
-                      <div class="description-profile">Sou um SJW!</div>
+                      <div className="description-profile">Sou um SJW!</div>
 
             <button>Seguir</button>
 
           </div> 
-       <ul class="data-user">
+       <ul className="data-user">
         <li><a><strong>666</strong><span>Fotos</span></a></li>
         <li><a><strong>420</strong><span>Seguidores</span></a></li>
         <li><a><strong>69</strong><span>Seguindo</span></a></li>

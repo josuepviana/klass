@@ -24,13 +24,13 @@ function RightNav() {
         <div className="rightnav--feed">
           {data &&
             data.items.map((item, i) => (
-              <div>
+              <div key={i}>
                 <hr />
                 <div className="artigo">
                   <h4 className="artigo--titulo open-sans">{item.title}</h4>
                   <p className="artigo--sumario metrophobic">
-                    {item.contentSnippet}
-                    <a className="artigo--link" href={item.link} target="_blank"> Leia mais...</a>
+                    {item.contentSnippet.substr(0, 210)}
+                    <a className="artigo--link" href={item.link} target="_blank">... Leia mais</a>
                   </p>
                 </div>
               </div>
