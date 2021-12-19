@@ -1,8 +1,8 @@
 import useAxios from 'axios-hooks';
 import Loading from '../../assets/loading-circle.gif'
 import React, { useEffect, useState } from "react";
-import CSS from '../Login/login.css';
 import { useHistory } from 'react-router-dom';
+import './login.css';
 
 
 function Login() {
@@ -42,9 +42,10 @@ function Login() {
           {loading && <img src={Loading} alt="loading..." width="60" height="60" />}
           {!loading &&
             <div>
-              <h2> Acesse sua conta </h2>
+              <h2>Entrar</h2>
               {error != "" ? <div className="error">{error}</div> : ""}
 
+              <h1 className="klass-title">klass</h1>
               <div className="inner-form">
                 <div className="form-group">
                   <label> Usuário </label>
@@ -75,8 +76,9 @@ function Login() {
                   />
                 </div>
 
-                <div className="form-group">
+                <div className="form-group buttons">
                   <button type="submit" disabled={loading}>Login</button>
+                  <button disabled={loading}>Cadastrar</button>
                 </div>
               </div>
             </div>

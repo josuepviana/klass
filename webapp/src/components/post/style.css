@@ -1,5 +1,7 @@
 .post--layout {
   background-color: whitesmoke;
+  margin-left: -2px;
+  margin-right: -2px;
 }
 .post--layout > p {
   font-weight: 400;
