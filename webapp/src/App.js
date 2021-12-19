@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Login from './pages/Login'
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 import './App.css';
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/profile">
+            <Profile />
           </Route>
         </Switch>
       </Router>
