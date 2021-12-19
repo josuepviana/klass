@@ -10,6 +10,12 @@
     margin: 1em;
 }
 
+.rightnav--content hgroup{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
 .rightnav--divider{
     width: 50%;
     margin: 1em auto;
@@ -31,14 +37,20 @@
 
 .artigo{
     margin:5px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    
 }
 .artigo--titulo{
-    margin: 10px;
+    margin: 5px;
+    font-size: 1.1em;
+    word-break: keep-all;
 }
 
 .artigo--sumario{
-    font-weight: 400;
-    font-size: .75em;
+    font-size: .85em;
+    word-break: keep-all;
+    margin: 10px;
 }
 
 .artigo--link {

@@ -16,6 +16,14 @@ function Sidenav() {
     history.push("/");
   };
 
+  const goToProfile = () => {
+    history.push("/profile");
+  };
+
+  const goToHome = () => {
+    history.push("/home");
+  };
+
   return (
     <Router>
       <nav class="menu" tabindex="0">
@@ -28,10 +36,10 @@ function Sidenav() {
         </header>
         <ul>
           <li tabIndex="0">
-            <FontAwesomeIcon icon={faHome} /> &nbsp;<Link to="/">Home</Link>
+            <FontAwesomeIcon icon={faHome} /> &nbsp;<button onClick={goToHome}>Home</button>
           </li>
           <li tabIndex="1">
-            <FontAwesomeIcon icon={faUser} /> &nbsp;<Link to="/profile">Perfil</Link>
+            <FontAwesomeIcon icon={faUser} /> &nbsp;<button onClick={goToProfile}>Perfil</button>
           </li>
           <li tabIndex="2">
             <FontAwesomeIcon icon={faBell} /> &nbsp;<Link to="/notifications">Notificações</Link>

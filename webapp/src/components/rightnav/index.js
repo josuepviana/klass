@@ -16,9 +16,9 @@ function RightNav() {
   return (
     <section className="rightnav--layout">
       <div className="rightnav--content">
-        <hgroup>
+        <hgroup className="open-sans">
           <h4>{usuario.faculdade.nome}</h4>
-          <h5>{usuario.curso.nome}</h5>
+          <h5>{usuario.faculdade.campus}</h5>
         </hgroup>
 
         <div className="rightnav--feed">
@@ -27,8 +27,8 @@ function RightNav() {
               <div>
                 <hr />
                 <div className="artigo">
-                  <h4 className="artigo--titulo">{item.title}</h4>
-                  <p className="artigo--sumario">
+                  <h4 className="artigo--titulo open-sans">{item.title}</h4>
+                  <p className="artigo--sumario metrophobic">
                     {item.contentSnippet}
                     <a className="artigo--link" href={item.link} target="_blank"> Leia mais...</a>
                   </p>

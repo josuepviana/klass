@@ -3,6 +3,7 @@
   width: var(--menu-width-desktop);
   z-index: 5;
   outline: none;
+  font-family: 'Slackey', cursive;
 }
 
 a:link,
@@ -49,7 +50,8 @@ button {
   background-position: left 15px center;
   background-size: auto 20px;
   transition: all 0.15s linear;
-
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
 }
 
 .menu li:focus {
