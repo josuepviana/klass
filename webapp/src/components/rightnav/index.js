@@ -29,8 +29,8 @@ function RightNav() {
                 <div className="artigo">
                   <h4 className="artigo--titulo open-sans">{item.title}</h4>
                   <p className="artigo--sumario metrophobic">
-                    {item.contentSnippet.split('\n')[0]}
-                    <a className="artigo--link" href={item.link} target="_blank"> Leia mais...</a>
+                    {item.contentSnippet.substr(0, 210)}
+                    <a className="artigo--link" href={item.link} target="_blank">... Leia mais</a>
                   </p>
                 </div>
               </div>
