@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import useAxios from "axios-hooks";
-import UsuarioContext from '../../auth/usuario-context';
+import { UsuarioContext } from '../../auth/usuario-context';
 import './style.css'
 
 function RightNav() {
-  const usuario = useContext(UsuarioContext);
+  const { usuario } = useContext(UsuarioContext);
 
-  const [{ data, loading, error }, tryAgain] = useAxios({
+  const [{ data }, tryAgain] = useAxios({
     url: `http://localhost:3000/faculdades/${usuario.faculdade.id}/feed`,
     headers: {
       Authorization: "Bearer " + localStorage.getItem("api-token"),
@@ -24,12 +24,12 @@ function RightNav() {
         <div className="rightnav--feed">
           {data &&
             data.items.map((item, i) => (
-              <div>
+              <div key={i}>
                 <hr />
                 <div className="artigo">
                   <h4 className="artigo--titulo open-sans">{item.title}</h4>
                   <p className="artigo--sumario metrophobic">
-                    {item.contentSnippet}
+                    {item.contentSnippet.split('\n')[0]}
                     <a className="artigo--link" href={item.link} target="_blank"> Leia mais...</a>
                   </p>
                 </div>

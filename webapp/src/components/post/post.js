@@ -5,11 +5,11 @@ import { faComment, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 import Comentario from "../comentario/comentario";
 import FazerComentario from "../comentario-popup";
-import UsuarioContext from "../../auth/usuario-context";
+import { UsuarioContext } from "../../auth/usuario-context";
 
 function Post({ post }) {
 
-  const usuario = useContext(UsuarioContext);
+  const { usuario } = useContext(UsuarioContext);
 
   const [{ data, loading, error }, refreshComentarios] = useAxios({
     url: `http://localhost:3000/posts/${post.id}/comentarios`,

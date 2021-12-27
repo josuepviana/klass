@@ -10,8 +10,7 @@ function Home() {
   const [textToPost, setTextToPost] = useState("");
 
   const [
-    { data: posts, loadingPosts, error: errorGettingPosts },
-    refreshPosts,
+    { data: posts }, refreshPosts,
   ] = useAxios({
     url: "http://localhost:3000/posts",
     headers: {
@@ -20,8 +19,8 @@ function Home() {
   });
 
   const [
-    { data: successPosting, loading: loadingAddPost, error: errorPosting },
-    executeAddPost,
+    { data: successPosting },
+    executeAddPost
   ] = useAxios(
     {
       url: "http://localhost:3000/posts",

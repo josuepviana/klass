@@ -4,12 +4,12 @@ import { faHome, faCogs, faBell, faUser, faSignOutAlt } from '@fortawesome/free-
 import "./sidenav.css";
 
 import { BrowserRouter as Router, useHistory, Link } from "react-router-dom";
-import UsuarioContext from "../../auth/usuario-context";
+import { UsuarioContext } from "../../auth/usuario-context";
 
 function Sidenav() {
   const history = useHistory();
 
-  const usuario = useContext(UsuarioContext);
+  const { usuario } = useContext(UsuarioContext);
 
   const doLogout = () => {
     localStorage.clear();
@@ -26,7 +26,7 @@ function Sidenav() {
 
   return (
     <Router>
-      <nav class="menu" tabindex="0">
+      <nav class="menu" tabIndex="0">
         <header class="avatar">
           <img
             src={"http://localhost:3001/img/" + usuario.avatar}

@@ -1,19 +1,26 @@
 import useAxios from 'axios-hooks';
-import Loading from '../../assets/loading-circle.gif'
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from 'react-router-dom';
+import { UsuarioContext } from '../../auth/usuario-context';
+import Loading from '../../assets/loading-circle.gif'
 import './login.css';
-
 
 function Login() {
 
   const history = useHistory();
+  const { setUsuario } = useContext(UsuarioContext);
 
   // Prepara a requisição de login
-  const [{ data, loading, error }, executeLogin] = useAxios({
-    url: 'http://localhost:3000/auth/login', // AppController.ts
+  const [{ data: loginResponse, loading, error }, executeLogin] = useAxios({
+    url: 'http://localhost:3000/auth/login',
     method: 'POST'
   }, { manual: true });
+
+
+  const [{ data: profile }, getProfile] = useAxios({
+    url: "http://localhost:3000/profile"
+  }, { manual: true});
+
 
   const [details, setDetails] = useState({
     email: "",
@@ -29,11 +36,26 @@ function Login() {
   };
 
   useEffect(() => {
-    if (data) {
-      localStorage.setItem('api-token', data.access_token);
+    if (loginResponse) {
+      localStorage.setItem('api-token', loginResponse.access_token);
+
+      getProfile({
+        headers: {
+          Authorization: "Bearer " + loginResponse.access_token,
+        }
+      })
+    }
+  }, [loginResponse, history]);
+
+  useEffect(() => {
+    if (profile) {
+
+      setUsuario(profile);
+      
       history.push('/home');
     }
-  }, [data, history]);
+  }, [profile, history]);
+
 
   return (
     <div className="login--layout">
