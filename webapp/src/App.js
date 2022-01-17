@@ -6,6 +6,7 @@ import {
 import Login from './pages/Login'
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import SignUp from './pages/SignUp';
 import './App.css';
 import { UsuarioProvider } from "./auth/usuario-context";
 
@@ -18,6 +19,9 @@ function App() {
           <Switch>
             <Route path="/" exact={true}>
               <Login />
+            </Route>
+            <Route path="/signup">
+              <SignUp />
             </Route>
             <Route path="/home">
               <Home />

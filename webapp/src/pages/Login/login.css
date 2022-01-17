@@ -5,7 +5,7 @@
     align-items: center;
 }
 
-.klass-title {
+.login--layout .klass-title {
     content: 'klass';
     position: fixed;
     left: 33vw;
@@ -21,7 +21,7 @@ input, button {
 }
 
 
-form::after{
+.login--layout form::after{
     content: '';
     display: block;
     position: absolute;
@@ -35,11 +35,11 @@ form::after{
     background-size: cover;
 }
 
-form .error{
+.login--layout form .error{
     margin-bottom: 25px;
 }
 
-form .form-inner{
+.login--layout form .form-inner{
     color: var(--primaryText-color);
     font-weight: 500;
     position: relative;
@@ -51,19 +51,19 @@ form .form-inner{
     padding-top: 30vh;
 }
 
-form .form-inner h2{
+.login--layout form .form-inner h2{
     font-size: 28px;
     font-weight: 900;
     margin-bottom: 30px;
 }
 
-form .form-inner .form-group{
+.login--layout form .form-inner .form-group{
     display: block;
     width: 300px;
     margin-bottom: 15px;
 }
 
-.form-inner label{
+.login--layout .form-inner label{
     display: block;
     color: var(--primaryText-color);
     font-size: 12px;
@@ -72,7 +72,7 @@ form .form-inner .form-group{
     transition: 0.5s;
 }
 
-.form-inner .form-group:focus-within label{
+.login--layout .form-inner .form-group:focus-within label{
     display: block;
     color: #0288D1;
     font-size: 12px;
@@ -80,7 +80,7 @@ form .form-inner .form-group{
     transition: 0.5s;
 }
 
-form .form-inner .form-group button {
+.login--layout form .form-inner .form-group button {
     display: block;
     padding: 10px 15px;
     background-color: whitesmoke;
@@ -88,13 +88,13 @@ form .form-inner .form-group button {
     transition: 0.5s;
 }
 
-form .form-inner .form-group input:focus,
-form .form-inner .form-group button:focus {
+.login--layout form .form-inner .form-group input:focus,
+.login--layout form .form-inner .form-group button:focus {
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 }
 
-form .form-inner input[type="submit"],
-form .form-inner button  {
+.login--layout form .form-inner input[type="submit"],
+.login--layout form .form-inner button  {
     display: inline-block;
     padding: 10px 15px;
     border-radius: 8px;
@@ -107,12 +107,13 @@ form .form-inner button  {
     cursor: pointer;
 } 
 
-form .form-inner input[type="submit"]:hover,
-form .form-inner button:hover  {
+.login--layout form .form-inner input[type="submit"]:hover,
+.login--layout form .form-inner button:hover  {
     background-position: 100% 0%;
     border-radius: 10px;
 }
-form .form-inner .buttons {
+
+.login--layout form .form-inner .buttons {
     display: flex;
     gap: 1em
 }

@@ -1,0 +1,14 @@
+.signup--layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url(https://unsplash.com/photos/YRMWVcdyhmI/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OXx8Y29sbGVnZXx8MHx8fHwxNjM5ODQ3MDE5&force=true);
+    background-size: cover;
+    height: 100vh;
+}
+
+.signup--layout .klass-title {
+    font-size: 33vh;
+    color: ghostwhite;
+}

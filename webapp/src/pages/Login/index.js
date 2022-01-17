@@ -35,6 +35,12 @@ function Login() {
     return false;
   };
 
+  const goToSignUp = () => {
+    history.push('/signup');
+
+    return false;
+  }
+
   useEffect(() => {
     if (loginResponse) {
       localStorage.setItem('api-token', loginResponse.access_token);
@@ -100,7 +106,7 @@ function Login() {
 
                 <div className="form-group buttons">
                   <button type="submit" disabled={loading}>Login</button>
-                  <button disabled={loading}>Cadastrar</button>
+                  <button disabled={loading} type="button" onClick={goToSignUp}>Cadastrar</button>
                 </div>
               </div>
             </div>
