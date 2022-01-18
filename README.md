@@ -1,6 +1,11 @@
 # klass
 Klass é uma rede social desenvolvida com base na versão inicial do Facebook
 
+## Link dos slides
+https://docs.google.com/presentation/d/1L08zwgyAoURMAS5nGXjmjmdgP30i0GBikaaC6d_iuOQ/edit?usp=sharing
+
+# Como rodar
+
 Instalar Docker (se quiser)
 https://docs.docker.com/engine/install/ubuntu/
 
