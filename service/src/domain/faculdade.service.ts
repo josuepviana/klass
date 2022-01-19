@@ -39,13 +39,13 @@ export class FaculdadeService {
     });
   }
 
-  async createUser(data: Prisma.FaculdadeCreateInput): Promise<Faculdade> {
+  async createFaculdade(data: Prisma.FaculdadeCreateInput): Promise<Faculdade> {
     return this.prisma.faculdade.create({
       data,
     });
   }
 
-  async updateUser(params: {
+  async updateFaculdade(params: {
     where: Prisma.FaculdadeWhereUniqueInput;
     data: Prisma.FaculdadeUpdateInput;
   }): Promise<Faculdade> {

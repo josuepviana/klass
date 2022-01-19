@@ -18,6 +18,8 @@ function SignUp() {
   const [{ data: faculdades, loading: loadingFaculdades, error: errorLoadingFaculdades }] = useAxios('http://localhost:3000/faculdades');
 
   const [details, setDetails] = useState({
+    nome: "",
+    sobrenome: "",
     email: "",
     password: "",
     faculdade: null,
@@ -41,16 +43,11 @@ function SignUp() {
   }
 
   useEffect(() => {
-    const faculdadeId = details.faculdade;
-
-    if (faculdadeId) {
+    if (faculdade.id === details.faculdade) {
       return;
     }
-
-    if (faculdades && faculdade.id != faculdadeId) {
-      setFaculdade(faculdades.find(f => f.id === faculdadeId) || {});
-      setDetails({...details, curso: null})
-    }
+    
+    setFaculdade((faculdades || []).find(f => f.id === details.faculdade) || {});
   }, [details])
 
   return (
@@ -68,12 +65,12 @@ function SignUp() {
                 <label> Primeiro Nome </label>
                 <input
                   placeholder="Nome"
-                  name="username"
-                  id="username"
+                  name="nome"
+                  id="nome"
                   onChange={(e) =>
-                    setDetails({ ...details, username: e.target.value })
+                    setDetails({ ...details, nome: e.target.value })
                   }
-                  value={details.username}
+                  value={details.nome}
                   disabled={loading}
                 />
               </div>
@@ -82,12 +79,12 @@ function SignUp() {
                 <label> Sobrenome Nome </label>
                 <input
                   placeholder="Sobrenome"
-                  name="username"
-                  id="username"
+                  name="sobrenome"
+                  id="sobrenome"
                   onChange={(e) =>
-                    setDetails({ ...details, username: e.target.value })
+                    setDetails({ ...details, sobrenome: e.target.value })
                   }
-                  value={details.username}
+                  value={details.sobrenome}
                   disabled={loading}
                 />
               </div>
@@ -106,6 +103,22 @@ function SignUp() {
                 />
               </div>
 
+
+              <div className="form-group">
+                <label> Email </label>
+                <input
+                  placeholder="email"
+                  name="email"
+                  id="email"
+                  type="email"
+                  onChange={(e) =>
+                    setDetails({ ...details, email: e.target.value })
+                  }
+                  value={details.sobrenome}
+                  disabled={loading}
+                />
+              </div>
+
               <div className="form-group">
                 <label> Faculdade </label>
 
@@ -120,6 +133,7 @@ function SignUp() {
 
               <div className="form-group">
                 <label> Curso </label>
+                <pre>{faculdade && JSON.stringify(faculdade, null, 2)}</pre>
 
                 <select onChange={(e) => setDetails({ ...details, curso: e.target.value })}>
                   <option>{loadingFaculdades ? 'Carregando cursos...' : 'Selecione o curso'}</option>
@@ -128,21 +142,6 @@ function SignUp() {
                   ))
                   }
                 </select>
-              </div>
-
-              <div className="form-group">
-                <label> Curso </label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Senha"
-                  id="password"
-                  onChange={(e) =>
-                    setDetails({ ...details, password: e.target.value })
-                  }
-                  value={details.password}
-                  disabled={loading}
-                />
               </div>
 
               <div className="form-group">
