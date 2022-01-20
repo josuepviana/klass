@@ -23,7 +23,9 @@
     text-align: center;
 }
 
-.form-group{
+.form-inner .form-fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .form-group label{
