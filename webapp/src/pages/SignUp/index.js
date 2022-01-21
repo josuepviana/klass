@@ -11,7 +11,7 @@ function SignUp() {
   // Prepara a requisição de login
   const [{ data: signUpResponse, loading, error }, executeSignUp] = useAxios(
     {
-      url: "http://localhost:3000/auth/signup",
+      url: "http://localhost:3000/usuarios",
       method: "POST",
     },
     { manual: true }
@@ -30,6 +30,7 @@ function SignUp() {
     sobrenome: "",
     email: "",
     password: "",
+    data_nascimento: "",
     faculdade: null,
     curso: null,
   });
@@ -62,6 +63,13 @@ function SignUp() {
 
     setFaculdade(faculdadeSelecionada);
   }, [details]);
+
+  useEffect(() => {
+    if(signUpResponse){
+      alert("Cadastro realizado com sucesso!");
+      history.push('/');
+    }
+  }, [signUpResponse]);
 
   return (
     <div className="signup--layout">
@@ -122,13 +130,13 @@ function SignUp() {
                     <label> Data de Nascimento </label>
                     <input
                       placeholder="00/00/0000"
-                      name="dataNascimento"
-                      id="dataNascimento"
+                      name="data_nascimento"
+                      id="data_nascimento"
                       type="date"
                       onChange={(e) =>
-                        setDetails({ ...details, dataNascimento: e.target.value })
+                        setDetails({ ...details, data_nascimento: e.target.value })
                       }
-                      value={details.dataNascimento}
+                      value={details.data_nascimento}
                       disabled={loading}
                     />
                   </div>
@@ -180,14 +188,14 @@ function SignUp() {
                   <div className="form-group">
                     <label> E-mail </label>
                     <input
-                      placeholder="email"
+                      placeholder="E-mail"
                       name="email"
                       id="email"
                       type="email"
                       onChange={(e) =>
                         setDetails({ ...details, email: e.target.value })
                       }
-                      value={details.sobrenome}
+                      value={details.email}
                       disabled={loading}
                     />
                   </div>

@@ -34,12 +34,12 @@ export class UsuariosController {
       data_nascimento: dataNascimento,
       faculdade: {
         connect: {
-          id: usuarioBody.faculdade
+          id: +usuarioBody.faculdade
         }
       },
       curso: {
         connect: {
-          id: usuarioBody.curso
+          id: +usuarioBody.curso
         }
       },
     });
