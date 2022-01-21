@@ -1,3 +1,11 @@
+.post--header img {
+  border-radius: 50% 50%;
+}
+
+.post--header .seguir--anchor {
+  cursor: pointer;
+}
+
 .post--layout {
   background-color: whitesmoke;
   margin-left: -2px;

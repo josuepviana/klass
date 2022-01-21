@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import useAxios from 'axios-hooks';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
@@ -33,6 +33,20 @@ function Post({ post }) {
     { manual: true }
   );
 
+  const [
+    { data: successAddingFriend },
+    executeAddFriend
+  ] = useAxios(
+    {
+      url: "http://localhost:3000/usuarios/amigos",
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("api-token"),
+      },
+    },
+    { manual: true }
+  );
+
   const handlePostarComentarioClick = (text) => {
     executeAddComment({
       data: {
@@ -42,22 +56,38 @@ function Post({ post }) {
     });
   }
 
+  const follow = (outroUsuario) => {
+    executeAddFriend({
+      data: {
+        usuario: outroUsuario.id
+      }
+    })
+  }
+
   useEffect(() => {
     refreshComentarios();
-  }, [successPosting]);
+  }, [successPosting, successAddingFriend]);
 
   return (
     <fieldset className="post--layout">
       <section className="post--header">
         <img
-          src={"http://localhost:3001/img/" + post.usuario.avatar}
+          src={post.usuario.avatar}
           alt="loading..."
         />
         <div class="slackey">
           <div class="user-nickname">
             {post.usuario.nome} {post.usuario.sobrenome}
           </div>
-          <div class="user-fullname">@{post.usuario.username}</div>
+          <div class="user-fullname">
+            <span>@{post.usuario.username}</span> 
+            &nbsp;
+            { usuario.id != post.usuario.id &&
+              <a className="seguir--anchor" onClick={() => follow(post.usuario)}>
+                <small>{post.usuario.amigos.some(amigo => amigo.id === usuario.id) ? 'Seguindo' : 'Seguir'}</small>
+              </a>
+            }
+          </div>
         </div>
       </section>
       <hr />

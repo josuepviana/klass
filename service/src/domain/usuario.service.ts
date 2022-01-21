@@ -16,6 +16,11 @@ export class UsuarioService {
     });
   }
 
+  async novaAmizade(usuario: Usuario, outroUsuario: Usuario): Promise<any> {
+    
+    return this.prisma.$executeRaw`INSERT INTO _amigos VALUES(${usuario.id}, ${outroUsuario.id});`;
+  }
+
   async usuarioProfile(usuarioWhereUniqueInput: Prisma.UsuarioWhereUniqueInput): Promise<Usuario | null> {
 
     const usuario = await this.prisma.usuario.findUnique({

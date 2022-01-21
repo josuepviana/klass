@@ -11,6 +11,10 @@ function Sidenav() {
 
   const { usuario } = useContext(UsuarioContext);
 
+  if (!usuario) {
+    history.push('/')
+  }
+
   const doLogout = () => {
     localStorage.clear();
     history.push("/");
@@ -24,12 +28,20 @@ function Sidenav() {
     history.push("/home");
   };
 
+  const goToFaculdade = () => {
+    history.push("/faculdade");
+  };
+
+  const goToCurso = () => {
+    history.push("/curso");
+  };
+
   return (
     <Router>
       <nav class="menu" tabIndex="0">
         <header class="avatar">
           <img
-            src={"http://localhost:3001/img/" + usuario.avatar}
+            src={usuario.avatar}
             alt="loading..."
           />
           <h2>{usuario.nome}</h2>
@@ -41,13 +53,10 @@ function Sidenav() {
           <li tabIndex="1">
             <FontAwesomeIcon icon={faUser} /> &nbsp;<button onClick={goToProfile}>Perfil</button>
           </li>
-          <li tabIndex="2">
-            <FontAwesomeIcon icon={faBell} /> &nbsp;<Link to="/notifications">Notificações</Link>
-          </li>
-          <li tabIndex="3">
+          <li tabIndex="4">
             <FontAwesomeIcon icon={faCogs} /> &nbsp;<Link to="/configurations">Configurações</Link>
           </li>
-          <li tabIndex="4" className="logout">
+          <li tabIndex="5" className="logout">
             <FontAwesomeIcon icon={faSignOutAlt} /> &nbsp;<button onClick={doLogout}>Logout</button>
           </li>
         </ul>
