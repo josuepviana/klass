@@ -12,7 +12,7 @@ function Home() {
   const [
     { data: posts }, refreshPosts,
   ] = useAxios({
-    url: "http://localhost:3000/posts",
+    url: "http://localhost:3000/usuarios/feed",
     headers: {
       Authorization: "Bearer " + localStorage.getItem("api-token"),
     },

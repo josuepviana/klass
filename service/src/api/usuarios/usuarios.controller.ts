@@ -7,17 +7,64 @@ import {
   UseGuards,
 } from '@nestjs/common';
 
-import { Usuario as UsuarioModel } from '@prisma/client';
+import { Status, Usuario as UsuarioModel } from '@prisma/client';
 import { UsuarioService } from '../../domain/usuario.service';
 import { HashingService } from '../../auth/hashing.service';
+import { PostagemService } from 'src/domain/postagem.service';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('usuarios')
 export class UsuariosController {
 
   constructor(
     private readonly usuarioService: UsuarioService,
+    private readonly postagemService: PostagemService,
     private readonly hashingService: HashingService) { }
 
+  @UseGuards(JwtAuthGuard)
+  @Post('amigos')
+  async postAmigo(
+    @Request() req,
+    @Body() body: { usuario}
+  ): Promise<any> {
+    const usuario = await this.usuarioService.usuario({
+      id: req.user.userId
+    });
+
+    const outroUsuario = await this.usuarioService.usuario({
+      id: body.usuario
+    });
+
+    return this.usuarioService.novaAmizade(usuario, outroUsuario);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('/feed')
+  async getFeed(@Request() req): Promise<Status[]> {
+    const usuario = await this.usuarioService.usuario({
+      id: req.user.userId
+    });
+
+    return this.postagemService.status({
+      where: {
+        usuario: {  
+          faculdadeId: usuario.faculdadeId       
+        }
+      },
+      orderBy: {
+        criadoEm: 'desc'
+      },
+      include: {
+        usuario: {
+          include: {
+            amigos: true
+          }
+        },
+        commentarios: true,
+      }
+    })
+
+  }
 
   @Post()
   async postUsuario(

@@ -39,7 +39,11 @@ export class PostsController {
           usuarioId: req.user.userId,
         },
         include: {
-          usuario: true,
+          usuario: {
+            include: {
+              amigos: true
+            }
+          },
           commentarios: true
         }
     });
@@ -74,7 +78,11 @@ export class PostsController {
         statusId: +postId
       },
       include: {
-        usuario: true
+        usuario: {
+          include: {
+            amigos: true
+          }
+        },
       }
     });
   }
